@@ -23,6 +23,7 @@ group :development, :test do
   gem 'bundler-audit', require: false
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
