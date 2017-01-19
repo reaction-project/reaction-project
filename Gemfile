@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
-# Ensure https when bundling github
+ruby '2.4.0'
+
+gem 'rails', '~> 5.0.1'
+
+# Ensure https when bundling from github
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
-gem 'rails', '~> 5.0.1'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
