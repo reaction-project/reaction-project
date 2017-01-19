@@ -20,6 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'bundler-audit', require: false
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
 end
