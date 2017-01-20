@@ -1,0 +1,20 @@
+{
+  "name": "reaction-project",
+  "description": "Core app for the Re:Action Project website",
+  "scripts": {
+    "postdeploy": "bin/setup"
+  },
+  "env": {
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+
+  ]
+}
