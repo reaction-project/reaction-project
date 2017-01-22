@@ -2,14 +2,12 @@ deployment:
   staging:
     branch: staging
     commands:
-      - git fetch origin --unshallow
       - git push git@heroku.com:reaction-project-staging.git -f $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate -a reaction-project-staging
       - heroku restart -a reaction-project-staging
   production:
     branch: master
     commands:
-      - git fetch origin --unshallow
       - git push git@heroku.com:reaction-project-production.git $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate -a reaction-project-production
       - heroku restart -a reaction-project-production
