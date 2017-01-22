@@ -1,0 +1,2 @@
+#!/bin/sh
+HEROKU_APP=reaction-project-staging HKAPP=reaction-project-staging exec "${HEROKU_COMMAND:-heroku}" "$@"
