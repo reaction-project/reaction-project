@@ -10,6 +10,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'clearance', '~> 1.16'
 gem 'coffee-rails', '~> 4.2'
 gem 'flutie', '~> 2.0'
 gem 'jbuilder', '~> 2.5'
