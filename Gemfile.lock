@@ -62,6 +62,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.17)
+    flutie (2.0.0)
     formatador (0.2.5)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -224,6 +225,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   dotenv-rails
+  flutie (~> 2.0)
   guard
   guard-rspec
   jbuilder (~> 2.5)
