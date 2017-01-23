@@ -26,6 +26,7 @@ group :development, :test do
   gem 'bundler-audit', require: false
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec-rails', '~> 3.5'
 end
 
@@ -37,4 +38,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
 end
