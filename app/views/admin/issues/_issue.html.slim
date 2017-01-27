@@ -1,0 +1,11 @@
+tr
+  td
+    - if issue.icon_data? && issue.icon.exists?
+      span.mr-10
+        = image_tag issue.icon_url, size: '32x32', class: 'vertical-middle'
+    = issue.name
+  td.text-right
+    .btn-group
+      = link_to 'Show', [:admin, issue], class: 'btn'
+      = link_to 'Edit', edit_admin_issue_path(issue), class: 'btn'
+      = link_to 'Delete', [:admin, issue], data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

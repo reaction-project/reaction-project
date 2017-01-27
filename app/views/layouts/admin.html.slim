@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta charset='utf-8'
+    title = page_title(app_name: 'Re:Action Project')
+    = csrf_meta_tags
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
+  body class="#{body_class}"
+    = render 'navbar'
+
+    - if flash.any?
+      section.container.grid-960
+        .columns.justify-center
+          .column.col-8.col-xs-12.col-sm-10
+            #flash.toast class="#{flash.alert ? 'toast-danger' : 'toast-success'}"
+              - flash.each do |key, value|
+                div class="flash #{key}"
+                  = value
+
+    = yield
+

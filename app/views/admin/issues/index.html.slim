@@ -1,0 +1,17 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      .columns
+        .column
+          - if @issues.any?
+            table.table
+              tbody
+                = render @issues
+          - else
+            h3.empty
+              | There are no issues. #{link_to 'Add one?', new_admin_issue_path}
+      .columns
+        .column
+          = link_to 'New Issue', new_admin_issue_path, class: 'btn btn-primary'
+
+

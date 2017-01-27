@@ -1,0 +1,19 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      h1
+        - if @issue.icon_data? && @issue.icon.exists?
+          span.mr-10
+            = image_tag @issue.icon_url, size: '64x64', class: 'text-top'
+        = @issue.name
+    - if @issue.lead?
+      .column.col-8.col-xs-12.col-sm-10
+        p = @issue.lead
+    - if @issue.body?
+      .column.col-8.col-xs-12.col-sm-10
+        = @issue.body
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      .btn-group
+        = link_to 'Edit', edit_admin_issue_path(@issue), class: 'btn'
+        = link_to 'Back', admin_issues_path, class: 'btn'

@@ -1,0 +1,12 @@
+@import '../global/variables';
+
+.btn-danger {
+  border-color: $color-danger;
+  color: $color-danger;
+
+  &:hover {
+    background: $color-danger;
+    border-color: $color-danger;
+    color: #fff;
+  }
+}
