@@ -31,5 +31,11 @@ else
 end
 
 Shrine.plugin :activerecord
+# Shrine.plugin :backgrounding
 Shrine.plugin :cached_attachment_data
+Shrine.plugin :default_url
 Shrine.plugin :direct_upload
+Shrine.plugin :logging
+
+# Shrine::Attacher.promote { |data| PromoteJob.perform_async(data) }
+# Shrine::Attacher.delete { |data| DeleteJob.perform_async(data) }

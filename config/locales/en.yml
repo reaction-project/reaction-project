@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  admin:
+    application:
+      navbar:
+        sign_out: Sign Out
+  application:
+    navbar:
+      sign_out: Sign Out

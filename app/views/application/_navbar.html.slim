@@ -1,0 +1,14 @@
+section.container.grid-960
+  .columns
+    .column
+      header.navbar
+        section.navbar-section
+          a.navbar-brand href=root_path
+            = image_tag 'brand/reaction-logo-sm@2x.png', size: '217x65', class: 'rounded'
+        section.navbar-section
+          - if signed_in?
+            ' Signed in as:
+            = current_user.email
+            = button_to t('.sign_out'), sign_out_path, method: :delete, class: 'btn btn-sm ml-10'
+          - else
+            = link_to t('.sign_in'), sign_in_path

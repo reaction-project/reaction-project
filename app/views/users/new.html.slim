@@ -1,0 +1,9 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-6.col-xs-12
+      #clearance.sign-up
+        h3 = t('.title')
+        = form_for @user do |form|
+          = render partial: '/users/form', object: form
+          .form-group
+            = form.submit class: 'btn btn-primary'

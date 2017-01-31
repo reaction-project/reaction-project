@@ -15,9 +15,11 @@ gem 'clearance', '~> 1.16'
 gem 'coffee-rails', '~> 4.2'
 gem 'fastimage', '~> 1.8'
 gem 'flutie', '~> 2.0'
+gem 'jquery-fileupload-rails'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
+gem 'pundit', '~> 1.1.0'
 gem 'roda', '~> 2.22'
 gem 'sass-rails', '~> 5.0'
 gem 'shrine', '~> 2.5'
@@ -36,14 +38,17 @@ end
 
 group :development do
   gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec', require: false
   gem 'listen', '~> 3.0.5'
   gem 'pry-rails'
+  gem 'rack-livereload'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 3.1'
 end

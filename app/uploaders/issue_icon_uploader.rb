@@ -9,4 +9,8 @@ class IssueIconUploader < Shrine
   Attacher.validate do
     validate_mime_type_inclusion ['image/png', 'image/gif', 'image/svg+xml']
   end
+
+  Attacher.default_url do |options|
+    "/#{record.pluralize.underscore.dasherize}/#{name}/missing.svg"
+  end
 end

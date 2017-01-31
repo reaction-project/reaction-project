@@ -1,0 +1,12 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-6.col-xs-12
+      #clearance.password-reset
+        h3 = t('.title')
+        p = t('.description')
+        = form_for :password_reset, url: user_password_path(@user, token: @user.confirmation_token), html: { method: :put } do |form|
+          .form-group
+            = form.label :password, class: 'form-label'
+            = form.password_field :password, class: 'form-input'
+          .form-group
+            = form.submit class: 'btn btn-primary'
