@@ -1,0 +1,24 @@
+= form_for [:admin, @category] do |f|
+  .columns
+    .column
+      .form-group
+        = f.label :name, class: 'form-label'
+        = f.text_field :name, class: 'form-input'
+  .columns
+    .column.col-6
+      .form-group
+        = f.label :icon, class: 'form-label'
+        = f.hidden_field :icon, value: @category.cached_icon_data
+        = f.file_field :icon
+    .column.col-6
+      - if @category.icon_data? && @category.icon.exists?
+        label.block Current Icon
+        = image_tag(@category.icon_url, size: '32x32')
+
+  .columns
+    .column
+      .form-group
+        .btn-group
+          = f.submit class: 'btn btn-primary'
+          button.btn.btn-link type="reset"
+            | Reset

@@ -1,0 +1,15 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      .columns
+        .column
+          - if @categories.any?
+            table.table
+              tbody
+                = render @categories
+          - else
+            h3.empty
+              | There are no categories. #{link_to 'Add one?', new_admin_category_path}
+      .columns
+        .column
+          = link_to 'New Category', new_admin_category_path, class: 'btn btn-primary'

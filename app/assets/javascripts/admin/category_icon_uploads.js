@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load", function() {
 
-  $('[type=file][name="issue[icon]"]').fileupload({
+  $('[type=file][name="category[icon]"]').fileupload({
     add: function(e, data) {
       data.progressBar = $('<div class="upload-progress"><div class="upload-progress__text"></div><div class="upload-progress__bar"></div></div>').insertAfter("body");
       var options      = {
@@ -8,7 +8,7 @@ $(document).on("turbolinks:load", function() {
         _: Date.now() // prevent caching
       };
 
-      $.getJSON("/issue_icons/cache/presign", options, function(result) {
+      $.getJSON("/category_icons/cache/presign", options, function(result) {
         data.formData  = result.fields;
         data.url       = result.url;
         data.paramName = "file";
@@ -36,7 +36,7 @@ $(document).on("turbolinks:load", function() {
         }
       };
 
-      $('input[type="hidden"][name="issue[icon]"]').val(JSON.stringify(image));
+      $('input[type="hidden"][name="category[icon]"]').val(JSON.stringify(image));
     }
   });
 });

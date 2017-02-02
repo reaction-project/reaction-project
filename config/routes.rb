@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  mount IssueIconUploader::UploadEndpoint => '/issue_icons'
+  mount CategoryIconUploader::UploadEndpoint, at: '/category_icons'
+  mount IssueIconUploader::UploadEndpoint, at: '/issue_icons'
 
   namespace :admin do
+    resources :categories
     resources :issues
 
     root to: 'dashboard#index'
