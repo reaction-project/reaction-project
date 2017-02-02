@@ -40,9 +40,11 @@ group :development do
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
   gem 'listen', '~> 3.0.5'
   gem 'pry-rails'
   gem 'rack-livereload'
+  gem 'rubocop-rspec'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
