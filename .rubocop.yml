@@ -1,5 +1,33 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/**/*'
+
 Documentation:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/routing/**/*'
+
+Style/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+RSpec/ExpectActual:
+  Exclude:
+    - 'spec/routing/**/*'
+
+RSpec/RepeatedExample:
+  Exclude:
+    - 'spec/policies/**/*'
+
+RSpec/RepeatedDescription:
+  Exclude:
+    - 'spec/policies/**/*'
