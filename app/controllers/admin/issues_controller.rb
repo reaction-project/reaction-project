@@ -44,7 +44,7 @@ module Admin
     def destroy
       authorize @issue
       @issue.destroy
-      redirect_to admin_issues_url, notice: 'Issue was successfully destroyed.'
+      redirect_to admin_issues_url, notice: 'Issue was successfully removed.'
     end
 
     private

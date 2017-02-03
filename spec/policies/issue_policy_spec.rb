@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe IssuePolicy do
+RSpec.describe IssuePolicy do
   subject(:policy) { described_class }
 
   let(:admin) { build_stubbed(:user, :admin) }
