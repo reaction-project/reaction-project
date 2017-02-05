@@ -1,0 +1,13 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      h1
+        - if @category.icon_data? && @category.icon.exists?
+          span.mr-10
+            = image_tag @category.icon_url, size: '64x64', class: 'text-top'
+        = @category.name
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      .btn-group
+        = link_to 'Edit', edit_admin_category_path(@category), class: 'btn'
+        = link_to 'Back', admin_categories_path, class: 'btn'

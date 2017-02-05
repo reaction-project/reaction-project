@@ -1,0 +1,11 @@
+tr
+  td
+    - if category.icon_data? && category.icon.exists?
+      span.mr-10
+        = image_tag category.icon_url, size: '32x32', class: 'vertical-middle'
+    = category.name
+  td.text-right
+    .btn-group
+      = link_to 'Show', [:admin, category], class: 'btn'
+      = link_to 'Edit', edit_admin_category_path(category), class: 'btn'
+      = link_to 'Delete', [:admin, category], data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

@@ -1,8 +1,14 @@
-= semantic_form_for @<%= singular_name %> do |f|
-  = f.inputs do
-  <%- attributes.each do |attribute| -%>
-    = f.input :<%= attribute.name %>
-  <%- end -%>
-
-  = f.actions do
-    = f.action :submit, as: :input
+= form_for @<%= singular_name %> do |f|
+  .columns
+    .column
+      <%- attributes.each do |attribute| -%>
+        .form-group
+          = f.input :<%= attribute.name %>, class: 'form-input'
+      <%- end -%>
+  .columns
+    .column
+      .form-group
+        .btn-group
+          = f.submit class: 'btn btn-primary'
+          button.btn.btn-link type="reset"
+            | Reset
