@@ -30,7 +30,7 @@ else
   }
 end
 
-Shrine.plugin :activerecord
+Shrine.plugin :activerecord, callbacks: false
 # Shrine.plugin :backgrounding
 Shrine.plugin :cached_attachment_data
 Shrine.plugin :default_url
