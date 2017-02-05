@@ -8,6 +8,7 @@ class CategoryIconUploader < Shrine
 
   Attacher.validate do
     validate_mime_type_inclusion ['image/png', 'image/gif', 'image/svg+xml']
+    validate_max_size 2.megabytes
   end
 
   Attacher.default_url do |_options|
