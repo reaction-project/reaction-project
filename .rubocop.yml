@@ -14,6 +14,7 @@ Documentation:
 Metrics/BlockLength:
   Exclude:
     - 'spec/controllers/**/*'
+    - 'spec/helpers/**/*'
     - 'spec/policies/**/*'
     - 'spec/routing/**/*'
 
@@ -46,6 +47,7 @@ Rails:
 RSpec/ExampleLength:
   Exclude:
     - 'spec/controllers/**/*'
+    - 'spec/helpers/**/*'
 
 RSpec/ExpectActual:
   Exclude:

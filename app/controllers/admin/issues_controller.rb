@@ -1,5 +1,5 @@
 module Admin
-  class IssuesController < ApplicationController
+  class IssuesController < Admin::ApplicationController
     before_action :set_issue, only: [:show, :edit, :update, :destroy]
     after_action :verify_authorized
 

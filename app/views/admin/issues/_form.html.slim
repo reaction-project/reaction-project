@@ -1,4 +1,14 @@
 = form_for [:admin, @issue] do |f|
+  - if @issue.errors.any?
+    .columns
+      .column
+        #flash.toast.toast-danger
+          h4
+            => pluralize(@issue.errors.count, "error")
+            | prohibited this article from being saved:
+          ul
+            - @issue.errors.full_messages.each do |msg|
+              li = msg
   .columns
     .column
       .form-group

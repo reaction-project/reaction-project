@@ -25,6 +25,13 @@ en:
     application:
       navbar:
         sign_out: Sign Out
+  activerecord:
+    attributes:
+      action_item:
+        priorities:
+          do_it: Do It
+          urgent: Urgent
+          do_or_die: Do or Die
   application:
     navbar:
       sign_out: Sign Out
