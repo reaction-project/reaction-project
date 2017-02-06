@@ -82,13 +82,13 @@ module Admin
     describe 'PUT #update' do
       context 'with valid params' do
         let(:new_attributes) {
-          skip('Add a hash of attributes valid for your model')
+          { name: Faker::Name.name }
         }
 
         it 'updates the requested category' do
-          put :update, params: { id: category.to_param, category: { name: 'Test' } }, session: valid_session
+          put :update, params: { id: category.to_param, category: new_attributes }, session: valid_session
           category.reload
-          expect(category.name).to eq('Test')
+          expect(category.name).to eq(new_attributes[:name])
         end
 
         it 'assigns the requested category as @category' do

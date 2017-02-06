@@ -82,13 +82,13 @@ module Admin
     describe 'PUT #update' do
       context 'with valid params' do
         let(:new_attributes) {
-          skip('Add a hash of attributes valid for your model')
+          { name: Faker::Name.name }
         }
 
         it 'updates the requested issue' do
-          put :update, params: { id: issue.to_param, issue: { name: 'Test' } }, session: valid_session
+          put :update, params: { id: issue.to_param, issue: new_attributes }, session: valid_session
           issue.reload
-          expect(issue.name).to eq('Test')
+          expect(issue.name).to eq(new_attributes[:name])
         end
 
         it 'assigns the requested issue as @issue' do
