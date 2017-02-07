@@ -20,6 +20,12 @@ Style/EmptyLinesAroundBlockBody:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
 RSpec/ExpectActual:
   Exclude:
     - 'spec/routing/**/*'
