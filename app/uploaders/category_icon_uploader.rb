@@ -6,9 +6,9 @@ class CategoryIconUploader < Shrine
   plugin :store_dimensions
   plugin :validation_helpers
 
-  plugin :direct_upload, max_size: 2.megabytes, presign: ->(request) do
+  plugin :direct_upload, max_size: 2.megabytes, presign: lambda { |_request|
     { content_length_range: 0..2.megabytes }
-  end
+  }
 
   Attacher.validate do
     validate_mime_type_inclusion ['image/png', 'image/gif', 'image/svg+xml']

@@ -6,9 +6,9 @@ class IssueIconUploader < Shrine
   plugin :store_dimensions
   plugin :validation_helpers
 
-  plugin :direct_upload, max_size: 2.megabytes, presign: ->(request) do
+  plugin :direct_upload, max_size: 2.megabytes, presign: lambda { |_request|
     { content_length_range: 0..2.megabytes }
-  end
+  }
 
   Attacher.validate do
     validate_mime_type_inclusion ['image/png', 'image/gif', 'image/svg+xml']
@@ -18,7 +18,7 @@ class IssueIconUploader < Shrine
     validate_max_height 1200
   end
 
-  Attacher.default_url do |options|
+  Attacher.default_url do |_options|
     "/#{record.pluralize.underscore.dasherize}/#{name}/missing.svg"
   end
 end

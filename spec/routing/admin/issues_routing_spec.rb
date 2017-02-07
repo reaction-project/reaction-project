@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Admin::IssuesController, type: :routing do
   describe 'routing' do
-
     it 'routes to #index' do
       expect(get: '/admin/issues').to route_to('admin/issues#index')
     end
@@ -16,7 +15,8 @@ RSpec.describe Admin::IssuesController, type: :routing do
     end
 
     it 'routes to #edit' do
-      expect(get: '/admin/issues/1/edit').to route_to('admin/issues#edit', id: '1')
+      expect(get: '/admin/issues/1/edit')
+        .to route_to('admin/issues#edit', id: '1')
     end
 
     it 'routes to #create' do
@@ -24,16 +24,18 @@ RSpec.describe Admin::IssuesController, type: :routing do
     end
 
     it 'routes to #update via PUT' do
-      expect(put: '/admin/issues/1').to route_to('admin/issues#update', id: '1')
+      expect(put: '/admin/issues/1')
+        .to route_to('admin/issues#update', id: '1')
     end
 
     it 'routes to #update via PATCH' do
-      expect(patch: '/admin/issues/1').to route_to('admin/issues#update', id: '1')
+      expect(patch: '/admin/issues/1')
+        .to route_to('admin/issues#update', id: '1')
     end
 
     it 'routes to #destroy' do
-      expect(delete: '/admin/issues/1').to route_to('admin/issues#destroy', id: '1')
+      expect(delete: '/admin/issues/1')
+        .to route_to('admin/issues#destroy', id: '1')
     end
-
   end
 end

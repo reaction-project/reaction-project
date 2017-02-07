@@ -50,31 +50,47 @@ module Admin
       context 'with valid params' do
         it 'creates a new Issue' do
           expect {
-            post :create, params: { issue: valid_attributes }, session: valid_session
+            post :create,
+                 params: { issue: valid_attributes },
+                 session: valid_session
           }.to change(Issue, :count).by(1)
         end
 
         it 'assigns a newly created issue as @issue' do
-          post :create, params: { issue: valid_attributes }, session: valid_session
+          post :create,
+               params: { issue: valid_attributes },
+               session: valid_session
           expect(assigns(:issue)).to be_a(Issue)
+        end
+
+        it 'saves the issue' do
+          post :create,
+               params: { issue: valid_attributes },
+               session: valid_session
           expect(assigns(:issue)).to be_persisted
         end
 
         it 'redirects to the created issue' do
-          post :create, params: { issue: valid_attributes }, session: valid_session
+          post :create,
+               params: { issue: valid_attributes },
+               session: valid_session
           expect(response).to redirect_to([:admin, Issue.last])
         end
       end
 
       context 'with invalid params' do
         it 'assigns a newly created but unsaved issue as @issue' do
-          post :create, params: { issue: invalid_attributes }, session: valid_session
+          post :create,
+               params: { issue: invalid_attributes },
+               session: valid_session
           expect(assigns(:issue)).to be_a_new(Issue)
         end
 
         it "re-renders the 'new' template" do
-          post :create, params: { issue: invalid_attributes }, session: valid_session
-          expect(response).to render_template("new")
+          post :create,
+               params: { issue: invalid_attributes },
+               session: valid_session
+          expect(response).to render_template(:new)
         end
       end
     end
@@ -86,20 +102,26 @@ module Admin
         }
 
         it 'updates the requested issue' do
-          put :update, params: { id: issue.to_param, issue: new_attributes }, session: valid_session
+          put :update,
+              params: { id: issue.to_param, issue: new_attributes },
+              session: valid_session
           issue.reload
           expect(issue.name).to eq(new_attributes[:name])
         end
 
         it 'assigns the requested issue as @issue' do
           issue = Issue.create! valid_attributes
-          put :update, params: { id: issue.to_param, issue: valid_attributes }, session: valid_session
+          put :update,
+              params: { id: issue.to_param, issue: valid_attributes },
+              session: valid_session
           expect(assigns(:issue)).to eq(issue)
         end
 
         it 'redirects to the issue' do
           issue = Issue.create! valid_attributes
-          put :update, params: { id: issue.to_param, issue: valid_attributes }, session: valid_session
+          put :update,
+              params: { id: issue.to_param, issue: valid_attributes },
+              session: valid_session
           expect(response).to redirect_to([:admin, issue])
         end
       end
@@ -107,14 +129,18 @@ module Admin
       context 'with invalid params' do
         it 'assigns the issue as @issue' do
           issue = Issue.create! valid_attributes
-          put :update, params: { id: issue.to_param, issue: invalid_attributes }, session: valid_session
+          put :update,
+              params: { id: issue.to_param, issue: invalid_attributes },
+              session: valid_session
           expect(assigns(:issue)).to eq(issue)
         end
 
         it "re-renders the 'edit' template" do
           issue = Issue.create! valid_attributes
-          put :update, params: { id: issue.to_param, issue: invalid_attributes }, session: valid_session
-          expect(response).to render_template("edit")
+          put :update,
+              params: { id: issue.to_param, issue: invalid_attributes },
+              session: valid_session
+          expect(response).to render_template(:edit)
         end
       end
     end
@@ -124,7 +150,9 @@ module Admin
         issue = create(:issue)
 
         expect {
-          delete :destroy, params: { id: issue.to_param }, session: valid_session
+          delete :destroy,
+                 params: { id: issue.to_param },
+                 session: valid_session
         }.to change(Issue, :count).by(-1)
       end
 
