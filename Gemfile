@@ -44,7 +44,8 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'pry-rails'
   gem 'rack-livereload'
-  gem 'rubocop-rspec'
+  gem 'rubocop', '~> 0.47.1', require: false
+  gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'

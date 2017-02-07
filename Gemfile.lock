@@ -322,6 +322,7 @@ DEPENDENCIES
   rails-controller-testing
   roda (~> 2.22)
   rspec-rails (~> 3.5)
+  rubocop (~> 0.47.1)
   rubocop-rspec
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
