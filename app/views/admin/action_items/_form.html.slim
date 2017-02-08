@@ -54,6 +54,7 @@
         label.block Current Image
         .form-group
           = image_tag(@action_item.image_url)
+        .form-group
           => f.label :remove_image
           = f.check_box :remove_image
   .columns
