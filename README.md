@@ -1,24 +1,29 @@
-# README
+# re:Action
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+_This project is under active development, more documentation and info coming soon._
 
-Things you may want to cover:
+## Installing
 
-* Ruby version
+Ensure you have Postgres installed. An easy solution is [Postgres.app](http://postgresapp.com/), or with homebrew: `brew intall postgres`, and following the directions after install.
 
-* System dependencies
+Clone this repository:
 
-* Configuration
+    git clone https://github.com/reaction-project/reaction-project
 
-* Database creation
+To install application dependencies and set up the database, cd into the project directory and run the setup script:
 
-* Database initialization
+    cd reaction-project
+    ./bin/setup
 
-* How to run the test suite
+This will add a `.env` file to the project root, which is where environment variables for your local environment are stored. You may open and customize these if you wish.
 
-* Services (job queues, cache servers, search engines, etc.)
+Start the server:
 
-* Deployment instructions
+    heroku local
 
-* ...
+You can now visit the site locally at http://lvh.me:5000.
+
+---
+
+To run the test suite, simply issue: `rails spec`.
+
