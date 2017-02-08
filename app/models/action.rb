@@ -1,5 +1,5 @@
-class ActionItem < ApplicationRecord
-  include ActionItemImageUploader::Attachment.new(:image)
+class Action < ApplicationRecord
+  include ActionImageUploader::Attachment.new(:image)
 
   belongs_to :issue
   belongs_to :category

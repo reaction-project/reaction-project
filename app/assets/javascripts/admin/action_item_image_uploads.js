@@ -8,7 +8,7 @@ $(document).on("turbolinks:load", function() {
         _: Date.now() // prevent caching
       };
 
-      $.getJSON("/action_item_images/cache/presign", options, function(result) {
+      $.getJSON("/action_images/cache/presign", options, function(result) {
         data.formData  = result.fields;
         data.url       = result.url;
         data.paramName = "file";

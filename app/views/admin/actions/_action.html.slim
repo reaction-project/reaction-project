@@ -1,0 +1,8 @@
+tr
+  td
+    = action.title
+  td.text-right
+    .btn-group
+      = link_to 'Show', [:admin, action], class: 'btn'
+      = link_to 'Edit', edit_admin_action_path(action), class: 'btn'
+      = link_to 'Delete', [:admin, action], data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

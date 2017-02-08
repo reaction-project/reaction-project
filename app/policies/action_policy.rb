@@ -1,4 +1,4 @@
-class ActionItemPolicy
+class ActionPolicy
   attr_reader :user, :action
 
   def initialize(user, action)
