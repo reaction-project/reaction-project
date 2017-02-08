@@ -1,0 +1,35 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      - if @action.image_data? && @action.image.exists?
+        = image_tag @action.image_url, class: 'img-responsive rounded'
+      h1
+        = @action.title
+      dl
+        dt Issue
+        dl = @action.issue.name
+        dt Category
+        dl = @action.category.name
+        dt Eyebrow
+        dl = @action.eyebrow
+        dt Title
+        dl = @action.title
+        dt Summary
+        dl = @action.summary
+        dt Body
+        dl = @action.body
+        dt Time Commitment
+        dl = @action.time_commitment
+        dt Priority
+        dl = @action.priority
+        dt Event
+        dl = @action.event
+        dt Location
+        dl = @action.location
+        dt Date and Time
+        dl = @action.happening_at
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      .btn-group
+        = link_to 'Edit', edit_admin_action_path(@action), class: 'btn'
+        = link_to 'Back', admin_actions_path, class: 'btn'

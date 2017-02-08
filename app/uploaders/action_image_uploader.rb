@@ -1,4 +1,4 @@
-class ActionItemImageUploader < Shrine
+class ActionImageUploader < Shrine
   plugin :activerecord
   plugin :determine_mime_type
   plugin :logging, logger: Rails.logger

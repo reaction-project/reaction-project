@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :action_item do
+  factory :action do
     title { Faker::Lorem.sentence }
     event { [true, false].sample }
     issue

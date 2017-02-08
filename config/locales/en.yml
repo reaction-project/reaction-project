@@ -27,7 +27,7 @@ en:
         sign_out: Sign Out
   activerecord:
     attributes:
-      action_item:
+      action:
         priorities:
           do_it: Do It
           urgent: Urgent

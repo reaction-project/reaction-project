@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205221924) do
+ActiveRecord::Schema.define(version: 20170208052954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "action_items", force: :cascade do |t|
+  create_table "actions", force: :cascade do |t|
     t.integer  "issue_id",                        null: false
     t.integer  "category_id",                     null: false
     t.string   "eyebrow"
@@ -23,15 +23,15 @@ ActiveRecord::Schema.define(version: 20170205221924) do
     t.text     "summary"
     t.text     "body"
     t.string   "time_commitment"
-    t.integer  "priority",        default: 0,     null: false
+    t.integer  "priority"
     t.boolean  "event",           default: false, null: false
     t.string   "location"
     t.datetime "happening_at"
     t.text     "image_data"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.index ["category_id"], name: "index_action_items_on_category_id", using: :btree
-    t.index ["issue_id"], name: "index_action_items_on_issue_id", using: :btree
+    t.index ["category_id"], name: "index_actions_on_category_id", using: :btree
+    t.index ["issue_id"], name: "index_actions_on_issue_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -62,6 +62,6 @@ ActiveRecord::Schema.define(version: 20170205221924) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
-  add_foreign_key "action_items", "categories", on_delete: :restrict
-  add_foreign_key "action_items", "issues", on_delete: :restrict
+  add_foreign_key "actions", "categories", on_delete: :restrict
+  add_foreign_key "actions", "issues", on_delete: :restrict
 end

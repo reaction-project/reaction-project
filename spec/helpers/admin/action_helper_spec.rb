@@ -1,25 +1,25 @@
 require 'rails_helper'
 
 module Admin
-  RSpec.describe ActionItemHelper, type: :helper do
-    describe '#options_for_action_items_priority_select' do
+  RSpec.describe ActionHelper, type: :helper do
+    describe '#options_for_actions_priority_select' do
       it 'returns an array of localized values for priority selects' do
-        expected = ActionItem.priorities.map do |priority|
+        expected = Action.priorities.map do |priority|
           [
             I18n.t(
               priority.first,
-              scope: 'activerecord.attributes.action_item.priorities',
+              scope: 'activerecord.attributes.action.priorities',
             ),
             priority.first,
           ]
         end
 
-        expect(helper.options_for_action_items_priority_select)
+        expect(helper.options_for_actions_priority_select)
           .to match_array(expected)
       end
     end
 
-    describe '#options_for_action_items_category_select' do
+    describe '#options_for_actions_category_select' do
       before do
         create_list(:category, 2)
       end
@@ -32,12 +32,12 @@ module Admin
           ]
         end
 
-        expect(helper.options_for_action_items_category_select)
+        expect(helper.options_for_actions_category_select)
           .to match_array(expected)
       end
     end
 
-    describe '#options_for_action_items_issue_select' do
+    describe '#options_for_actions_issue_select' do
       it 'returns an array of values for issues' do
         expected = Issue.order(name: :asc).all.map do |issue|
           [
@@ -46,7 +46,7 @@ module Admin
           ]
         end
 
-        expect(helper.options_for_action_items_issue_select)
+        expect(helper.options_for_actions_issue_select)
           .to match_array(expected)
       end
     end
