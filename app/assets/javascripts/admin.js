@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require jquery-fileupload/basic
 //= require turbolinks
+//= require selectize/dist/js/standalone/selectize
+//= require Sortable/Sortable
 //= require_tree ./admin

@@ -1,0 +1,10 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      h1 = @feature.action.title
+      p This action has been featured.
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      .btn-group
+        = link_to 'Edit', edit_admin_feature_path(@feature), class: 'btn'
+        = link_to 'Back', admin_features_path, class: 'btn'

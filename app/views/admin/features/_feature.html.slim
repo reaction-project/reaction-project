@@ -1,0 +1,10 @@
+li id=dom_id(feature) data-id=feature.id
+  .container
+    .columns
+      .column
+        i.icon-menu.hand.mr-5.js-handle
+        = feature.action.title
+      .column.text-right
+        .btn-group
+          = link_to 'Edit', edit_admin_feature_path(feature), class: 'btn'
+          = link_to 'Delete', [:admin, feature], data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

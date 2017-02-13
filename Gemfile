@@ -11,8 +11,9 @@ git_source(:github) do |repo_name|
 end
 
 gem 'aws-sdk', '~> 2.1'
+gem 'bower-rails', '~> 0.11.0'
+gem 'bundler-audit', require: false
 gem 'clearance', '~> 1.16'
-gem 'coffee-rails', '~> 4.2'
 gem 'fastimage', '~> 1.8'
 gem 'flutie', '~> 2.0'
 gem 'jquery-fileupload-rails'
@@ -28,7 +29,6 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'bundler-audit', require: false
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
   gem 'factory_girl_rails', '~> 4.0'

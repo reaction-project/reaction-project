@@ -5,10 +5,10 @@ html
     title = page_title(app_name: 'Re:Action Project')
     = csrf_meta_tags
     = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css'
     = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
   body class="#{body_class}"
     = render 'navbar'
-
     - if flash.any?
       section.container.grid-960
         .columns.justify-center
@@ -17,6 +17,4 @@ html
               - flash.each do |key, value|
                 div class="flash #{key}"
                   = value
-
     = yield
-

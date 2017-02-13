@@ -1,0 +1,25 @@
+= form_for [:admin, @feature] do |f|
+  - if @feature.errors.any?
+    .columns
+      .column
+        #flash.toast.toast-danger
+          h4
+            => pluralize(@feature.errors.count, "error")
+            | prohibited this article from being saved:
+          ul
+            - @feature.errors.full_messages.each do |msg|
+              li = msg
+  .columns
+    .column
+      .form-group
+        = f.label :action_id, class: 'form-label'
+        = f.select :action_id, options_for_feature_actions_select, {}, { class: '' }
+  .columns
+    .column
+      .form-group
+        .btn-group
+          = f.submit class: 'btn btn-primary'
+          button.btn.btn-link type="reset"
+            | Reset
+javascript:
+  $('select').selectize();
