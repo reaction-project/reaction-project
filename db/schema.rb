@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208064027) do
+ActiveRecord::Schema.define(version: 20170213050943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "actions", force: :cascade do |t|
-    t.integer  "issue_id",                        null: false
-    t.integer  "category_id",                     null: false
+  create_table "actions", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "issue_id",                        null: false
+    t.uuid     "category_id",                     null: false
     t.string   "eyebrow"
     t.string   "title",                           null: false
     t.text     "summary"
@@ -34,22 +35,22 @@ ActiveRecord::Schema.define(version: 20170208064027) do
     t.index ["issue_id"], name: "index_actions_on_issue_id", using: :btree
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name",       null: false
     t.text     "icon_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "features", force: :cascade do |t|
+  create_table "features", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer  "position",   default: 0, null: false
-    t.integer  "action_id",              null: false
+    t.uuid     "action_id",              null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["action_id"], name: "index_features_on_action_id", using: :btree
   end
 
-  create_table "issues", force: :cascade do |t|
+  create_table "issues", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name",       null: false
     t.text     "lead"
     t.text     "body"
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170208064027) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.string   "email",                                      null: false
