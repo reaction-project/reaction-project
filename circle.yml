@@ -1,3 +1,6 @@
+dependencies:
+  pre:
+    - gem install bundler --pre
 deployment:
   staging:
     branch: staging
