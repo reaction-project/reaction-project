@@ -1,0 +1,44 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      .columns.col-gapless
+        .column
+          ul.ma-0#features_list.list-unstyled
+            - if @features.any?
+              = render @features
+            - else
+              h3.empty
+                | There are no Feature Items. #{link_to 'Add one?', new_admin_action_path}
+      .columns
+        .column
+          = link_to 'New Feature', new_admin_feature_path, class: 'btn btn-primary'
+javascript:
+  function sortFeatures() {
+    list = document.getElementById('features_list');
+    for (var i = 0; i < list.children.length; i++) {
+      var item = list.children[i];
+      var id = item.dataset.id;
+      $.ajax(
+        '/admin/features/' + id,
+        {
+          data: {
+            feature: {
+              position: i,
+            }
+          },
+          dataType: 'script',
+          method: 'PUT',
+        }
+      );
+    }
+  }
+
+  var el = document.getElementById('features_list');
+  var sortable = Sortable.create(el, {
+    handle: '.js-handle',
+    animation: 150,
+    ghostClass: 'sortable-ghost',
+    chosenClass: 'sortable-chosen',
+    dragClass: 'sortable-drag',
+    onSort: sortFeatures,
+  });

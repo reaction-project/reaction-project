@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :actions
     resources :categories
+    resources :features
     resources :issues
 
     root to: 'dashboard#index'

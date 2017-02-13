@@ -8,7 +8,6 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body class="#{body_class}"
     = render 'navbar'
-
     - if flash.any?
       section.container.grid-960
         .columns.justify-center
@@ -17,5 +16,4 @@ html
               - flash.each do |key, value|
                 div class="flash #{key}"
                   = value
-
     = yield
