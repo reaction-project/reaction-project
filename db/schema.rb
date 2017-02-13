@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170213050447) do
     t.text     "summary"
     t.text     "body"
     t.string   "time_commitment"
-    t.integer  "priority"
+    t.integer  "priority",        default: 0,     null: false
     t.boolean  "event",           default: false, null: false
     t.string   "location"
     t.datetime "happening_at"
