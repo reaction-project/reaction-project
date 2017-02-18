@@ -17,7 +17,7 @@ class ProfileAvatarUploader < Shrine
       'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
     ]
     validate_max_size 5.megabytes
-    validate_min_size 10.kilobytes
+    validate_min_size 5.kilobytes
     validate_max_width 5760
     validate_max_height 5760
   end
