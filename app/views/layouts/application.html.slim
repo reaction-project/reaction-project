@@ -11,7 +11,7 @@ html
     - if flash.any?
       section.container.grid-960
         .columns.justify-center
-          .column.col-6.col-xs-12
+          .column.col-8.col-xs-12.col-sm-10
             #flash.toast class="#{flash.alert ? 'toast-danger' : 'toast-success'}"
               - flash.each do |key, value|
                 div class="flash #{key}"
