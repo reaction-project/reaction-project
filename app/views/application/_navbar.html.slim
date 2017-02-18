@@ -9,7 +9,7 @@ section.container.grid-960
           - if signed_in?
             small
               ' Signed in as:
-              = current_user.email
+              = link_to current_user.email, profile_path
             = button_to t('.sign_out'), sign_out_path, method: :delete, class: 'btn btn-sm ml-10'
           - else
             = link_to t('.sign_in'), sign_in_path

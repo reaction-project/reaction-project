@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213050943) do
+ActiveRecord::Schema.define(version: 20170217075210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170213050943) do
     t.text     "summary"
     t.text     "body"
     t.string   "time_commitment"
-    t.integer  "priority"
+    t.integer  "priority",        default: 0,     null: false
     t.boolean  "event",           default: false, null: false
     t.string   "location"
     t.datetime "happening_at"
@@ -59,6 +59,19 @@ ActiveRecord::Schema.define(version: 20170213050943) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profiles", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "avatar_data"
+    t.string   "facebook"
+    t.string   "medium"
+    t.string   "twitter"
+    t.uuid     "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
+  end
+
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
@@ -74,4 +87,5 @@ ActiveRecord::Schema.define(version: 20170213050943) do
   add_foreign_key "actions", "categories", on_delete: :restrict
   add_foreign_key "actions", "issues", on_delete: :restrict
   add_foreign_key "features", "actions"
+  add_foreign_key "profiles", "users", on_delete: :restrict
 end

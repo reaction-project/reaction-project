@@ -1,4 +1,4 @@
-class ActionImageUploader < Shrine
+class ProfileAvatarUploader < Shrine
   plugin :activerecord
   plugin :determine_mime_type
   plugin :default_url
@@ -16,7 +16,7 @@ class ActionImageUploader < Shrine
     validate_mime_type_inclusion [
       'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
     ]
-    validate_max_size 10.megabytes
+    validate_max_size 5.megabytes
     validate_min_size 10.kilobytes
     validate_max_width 5760
     validate_max_height 5760

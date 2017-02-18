@@ -1,6 +1,7 @@
 class IssueIconUploader < Shrine
   plugin :activerecord
   plugin :determine_mime_type
+  plugin :default_url
   plugin :logging, logger: Rails.logger
   plugin :remove_attachment
   plugin :store_dimensions
@@ -19,6 +20,6 @@ class IssueIconUploader < Shrine
   end
 
   Attacher.default_url do |_options|
-    "/#{record.pluralize.underscore.dasherize}/#{name}/missing.svg"
+    "#{record.class.name.pluralize.underscore.dasherize}/#{name}/missing.svg"
   end
 end
