@@ -10,6 +10,8 @@ section.container.grid-960
             small
               ' Signed in as:
               = link_to current_user.email, profile_path
+            figure.avatar.avatar-sm.ml-10.media-figure
+              = image_tag current_user.profile.avatar_url, size: '24x24'
             = button_to t('.sign_out'), sign_out_path, method: :delete, class: 'btn btn-sm ml-10'
           - else
             = link_to t('.sign_in'), sign_in_path
