@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :features
     resources :issues
+    resources :users
 
     root to: 'dashboard#index'
   end

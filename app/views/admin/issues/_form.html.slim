@@ -5,7 +5,7 @@
         #flash.toast.toast-danger
           h4
             => pluralize(@issue.errors.count, "error")
-            | prohibited this article from being saved:
+            | prohibited this issue from being saved:
           ul
             - @issue.errors.full_messages.each do |msg|
               li = msg
