@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :issues, through: :user_issues
   has_many :user_issues
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
-  after_create :create_profile
+  after_create UserCallbacks.new
 end
