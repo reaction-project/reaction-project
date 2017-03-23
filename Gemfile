@@ -28,6 +28,7 @@ gem 'simple-line-icons-rails'
 gem 'slim-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'wysiwyg-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
