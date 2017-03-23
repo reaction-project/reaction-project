@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.0.2'
 
 # Ensure https when bundling from github
 git_source(:github) do |repo_name|

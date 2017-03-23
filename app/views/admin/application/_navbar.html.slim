@@ -9,6 +9,7 @@ section.container.grid-960
           a.btn.btn-link class="#{'active' if controller_name == 'categories'}" href=admin_categories_path Categories
           a.btn.btn-link class="#{'active' if controller_name == 'actions'}" href=admin_actions_path Actions
           a.btn.btn-link class="#{'active' if controller_name == 'features'}" href=admin_features_path Features
+          a.btn.btn-link class="#{'active' if controller_name == 'users'}" href=admin_users_path Users
         section.navbar-section
           - if signed_in?
             small

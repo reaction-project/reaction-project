@@ -1,0 +1,17 @@
+section.container.grid-960
+  .columns.justify-center
+    .column.col-8.col-xs-12.col-sm-10
+      .columns
+        .column
+          - if @users.any?
+            table.table
+              tbody
+                = render @users
+          - else
+            h3.empty
+              | There are no users. #{link_to 'Add one?', new_admin_user_path}
+      .columns
+        .column
+          = link_to 'New User', new_admin_user_path, class: 'btn btn-primary'
+
+

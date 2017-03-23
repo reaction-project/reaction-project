@@ -32,6 +32,11 @@ en:
           do_it: Do It
           urgent: Urgent
           do_or_die: Do or Die
+      user:
+        roles:
+          admin: Admin
+          ambassador: Ambassador
+          user: User
   application:
     navbar:
       sign_out: Sign Out
