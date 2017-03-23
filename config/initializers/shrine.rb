@@ -16,8 +16,16 @@ if s3_enabled
   }
 
   Shrine.storages = {
-    cache: Shrine::Storage::S3.new(prefix: 'cache', **s3_options),
-    store: Shrine::Storage::S3.new(prefix: 'store', **s3_options),
+    cache: Shrine::Storage::S3.new(
+      prefix: 'cache',
+      upload_options: { acl: 'public-read' },
+      **s3_options
+    ),
+    store: Shrine::Storage::S3.new(
+      prefix: 'store',
+      upload_options: { acl: 'public-read' },
+      **s3_options
+    ),
   }
 else
   # Fall back to file storage
